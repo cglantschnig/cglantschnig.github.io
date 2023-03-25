@@ -18,7 +18,7 @@
 }
 
 .required {
-  color: red;
+  color: var(--error-color);
   font-weight: bold;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .error {
-  color: red;
+  color: var(--error-color);
   font-size: 0.7em;
   text-align: right;
 }

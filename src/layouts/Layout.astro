@@ -1,6 +1,6 @@
 ---
 export interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -9,104 +9,106 @@ const year = (new Date()).getFullYear();
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<header class="main-menu">
-			<ul>
-				<li><a href="#home">Home</a></li>
-				<li><a href="#portfolio">Portfolio</a></li>
-				<li><a href="#contact">Contact</a></li>
-			</ul>
-		</header>
-		<slot />
-		<footer class="footer">
-			<p>Copy right @ {year}</p>
-		</footer>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="main-menu">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </header>
+    <slot />
+    <footer class="footer">
+      <p>Copy right @ {year}</p>
+    </footer>
+  </body>
 </html>
 <style lang="scss">
-	:root {
-		--font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-		--font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-		--font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+  :root {
+    --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+    --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
+    --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
 
-		--color-text: hsl(12, 5%, 4%);
-		--color-bg: hsl(10, 21%, 95%);
-		--color-border: hsl(17, 24%, 90%);
-	}
+    --color-text: hsl(12, 5%, 4%);
+    --color-bg: hsl(10, 21%, 95%);
+    --color-border: hsl(17, 24%, 90%);
 
-	html {
-		font-family: system-ui, sans-serif;
-		font-size: var(--font-size-base);
-		color: var(--color-text);
-		background-color: var(--color-bg);
-		scroll-behavior: smooth;
-	}
+    --error-color: red;
+  }
 
-	body {
-		margin: 0;
-	}
+  html {
+    font-family: system-ui, sans-serif;
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    scroll-behavior: smooth;
+  }
 
-	.main-menu {
-		position: fixed;
-		width: 100%;
-		ul {
-			display: flex;
-			justify-content: center;
-			margin: 0;
-			padding: 0;
-			height: 2em;
-			background-color: hsl(0, 0%, 100%);;
-			opacity: 0.8;
-			li {
-				display: block;
-				a {
-					display: block;
-					text-decoration: none;
-					color: hsl(0, 0%, 20%);
-					line-height: 2em;
-					padding-inline: 1em;
+  body {
+    margin: 0;
+  }
 
-					&:hover, &:active {
-					animation: color_change 1s;
-					background-color: hsl(0, 0%, 90%);
-				}
-				}
-			}
-		}
-	}
+  .main-menu {
+    position: fixed;
+    width: 100%;
+    ul {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      height: 2em;
+      background-color: hsl(0, 0%, 100%);;
+      opacity: 0.8;
+      li {
+        display: block;
+        a {
+          display: block;
+          text-decoration: none;
+          color: hsl(0, 0%, 20%);
+          line-height: 2em;
+          padding-inline: 1em;
 
-	.footer {
-		display: grid;
-		place-items: center;
-		height: 3em;
-		text-align: center;
-		background-color: black;
-		color: white;
-		p {
-			margin: 0;
-		}
-	}
+          &:hover, &:active {
+          animation: color_change 1s;
+          background-color: hsl(0, 0%, 90%);
+        }
+        }
+      }
+    }
+  }
+
+  .footer {
+    display: grid;
+    place-items: center;
+    height: 3em;
+    text-align: center;
+    background-color: black;
+    color: white;
+    p {
+      margin: 0;
+    }
+  }
 
 </style>
 
 <style is:global>
-	h1 {
-		font-size: var(--font-size-xl);
-	}
+  h1 {
+    font-size: var(--font-size-xl);
+  }
 
-	h2 {
-		font-size: var(--font-size-lg);
-	}
+  h2 {
+    font-size: var(--font-size-lg);
+  }
 
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
+  code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+      Bitstream Vera Sans Mono, Courier New, monospace;
+  }
 </style>
