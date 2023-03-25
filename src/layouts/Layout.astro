@@ -4,6 +4,7 @@ export interface Props {
 }
 
 const { title } = Astro.props;
+const year = (new Date()).getFullYear();
 ---
 
 <!DOCTYPE html>
@@ -16,10 +17,20 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<header class="main-menu">
+			<ul>
+				<li><a href="#home">Home</a></li>
+				<li><a href="#portfolio">Portfolio</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</header>
 		<slot />
+		<footer class="footer">
+			<p>Copy right @ {year}</p>
+		</footer>
 	</body>
 </html>
-<style>
+<style lang="scss">
 	:root {
 		--font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
 		--font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
@@ -35,12 +46,53 @@ const { title } = Astro.props;
 		font-size: var(--font-size-base);
 		color: var(--color-text);
 		background-color: var(--color-bg);
+		scroll-behavior: smooth;
 	}
 
 	body {
 		margin: 0;
 	}
 
+	.main-menu {
+		position: fixed;
+		width: 100%;
+		ul {
+			display: flex;
+			justify-content: center;
+			margin: 0;
+			padding: 0;
+			height: 2em;
+			background-color: hsl(0, 0%, 100%);;
+			opacity: 0.8;
+			li {
+				display: block;
+				a {
+					display: block;
+					text-decoration: none;
+					color: hsl(0, 0%, 20%);
+					line-height: 2em;
+					padding-inline: 1em;
+
+					&:hover, &:active {
+					animation: color_change 1s;
+					background-color: hsl(0, 0%, 90%);
+				}
+				}
+			}
+		}
+	}
+
+	.footer {
+		display: grid;
+		place-items: center;
+		height: 3em;
+		text-align: center;
+		background-color: black;
+		color: white;
+		p {
+			margin: 0;
+		}
+	}
 
 </style>
 

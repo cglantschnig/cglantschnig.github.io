@@ -1,0 +1,29 @@
+---
+import ContactForm from "./ContactForm";
+---
+
+<section id="contact" class="contact-me">
+  <h2>Contact Me</h2>
+  <div class="contact-form">
+    <ContactForm client:only="react" />
+  </div>
+</section>
+<style lang="scss">
+  .contact-me {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #97a90c;
+    padding: 2em 0;
+    h2 {
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .contact-form {
+      margin: 0 auto;
+      width: 60%;
+    }
+  }
+</style>

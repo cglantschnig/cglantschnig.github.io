@@ -1,0 +1,51 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  input[type=submit] {
+    border: 1px solid black;
+    background-color: transparent;
+    padding: 1em 2em;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    &:hover, &:active {
+      background-color: black;
+      color: white;
+    }
+  }
+}
+
+.required {
+  color: red;
+  font-weight: bold;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  label {
+    display: block;
+  }
+  input, textarea {
+    border: 0;
+    padding: 0.5em;
+    font-size: 1em;
+    &:focus {
+      outline: 1px solid black;
+      outline-offset: 0.25em;
+    }
+  }
+  textarea {
+    resize: vertical;
+    min-height: 11em;
+  }
+}
+
+.error {
+  color: red;
+  font-size: 0.7em;
+  text-align: right;
+}
