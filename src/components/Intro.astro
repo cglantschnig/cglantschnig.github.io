@@ -1,17 +1,113 @@
 ---
 ---
 <section id="home" class="intro">
-  <h1> INTRO </h1>
+  <div class="intro-content">
+    <div class="text-section">
+      <h1>Hi, I am Chris.</h1>
+      <h2 data-id="job-title">Fullstack Developer</h2>
+      <p>Let me help you in creating your software project from idea to completion.</p>
+      <a class="contact-me-btn" href="#contact">Contact Me</a>
+    </div>
+    <img class="dev-image" 
+      alt="software developer" 
+      src="software_developer.svg" />
+  </div>
 </section>
+<script>
+  var words = [
+    'Front-end Developer.', 
+    'Back-end Developer.', 
+    'Software Architect.', 
+    'Project Manager.', 
+    'Blockchain Enthusiast.',
+    'and more.'
+  ],
+    part,
+    i = 0,
+    offset = 0,
+    len = words.length,
+    forwards = true,
+    skip_count = 0,
+    skip_delay = 15,
+    speed = 70,
+    jobTitleElement = document.querySelector('[data-id=job-title]')!;
+
+  setInterval(function () {
+    if (forwards) {
+      if (offset >= words[i].length) {
+        ++skip_count;
+        if (skip_count == skip_delay) {
+          forwards = false;
+          skip_count = 0;
+        }
+      }
+    }
+    else {
+      if (offset == 0) {
+        forwards = true;
+        i++;
+        offset = 0;
+        if (i >= len) {
+          i = 0;
+        }
+      }
+    }
+    part = words[i].substr(0, offset);
+    if (skip_count == 0) {
+      if (forwards) {
+        offset++;
+      }
+      else {
+        offset--;
+      }
+    }
+    jobTitleElement.innerHTML = part;
+  },speed);
+
+</script>
 <style lang="scss">
   .intro {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr min(1024px, 80%) 1fr;
     min-height: 100vh;
-    background-color: gray;
+    background-color: var(--section-1-bg);
+    color: var(--section-1-color)
   }
-  h1 {
-    text-align: center;
+  .intro-content {
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
   }
+  .text-section {
+    h1 {
+      font-size: 2.5em;
+      color: black;
+    }
+    h2 {
+      height: 1.5em;
+      font-size: 1.5em;
+    }
+  }
+  .dev-image {
+    width: 100%;
+  }
+  .contact-me-btn {
+    display: inline-block;
+    margin-top: 1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: var(--section-1-color);
+    color: var(--section-1-bg);
+    padding: 1em 2em;
+    &:hover, &:active {
+      background-color: hsl(47, 91%, 8%);
+    }
+  }
+  @media (min-width: 640px) {
+    .intro-content {
+      grid-template-columns: 3fr 4fr;
+    }
+  }
+
 </style>
