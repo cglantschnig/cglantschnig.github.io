@@ -5,7 +5,7 @@
     <div class="text-section">
       <h1>Hi, I am Chris.</h1>
       <h2 data-id="job-title">Fullstack Developer</h2>
-      <p>Let me help you in creating your software project from idea to completion.</p>
+      <p>Do you have a project and need assistence? Let me help you in creating your software project from idea to completion.</p>
       <a class="contact-me-btn" href="#contact">Contact Me</a>
     </div>
     <img class="dev-image" 
@@ -90,10 +90,12 @@
     }
   }
   .dev-image {
-    width: 100%;
+    width: 80%;
+    margin: 0 auto
   }
   .contact-me-btn {
-    display: inline-block;
+    display: block;
+    text-align: center;
     margin-top: 1em;
     text-decoration: none;
     text-transform: uppercase;
@@ -107,6 +109,14 @@
   @media (min-width: 640px) {
     .intro-content {
       grid-template-columns: 3fr 4fr;
+    }
+    .dev-image {
+      width: 100%;
+    }
+
+    .contact-me-btn {
+      display: inline-block;
+      width: auto;
     }
   }
 
